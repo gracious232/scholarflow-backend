@@ -7,7 +7,7 @@ services:
     startCommand: npm start
     envVars:
       - key: NODE_VERSION
-        value: 18
+        value: 20
       - key: NODE_ENV
         value: production
       - key: PUPPETEER_SKIP_DOWNLOAD
