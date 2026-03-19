@@ -1,0 +1,9 @@
+node_modules
+npm-debug.log*
+.env
+.env.*
+papers.db
+.git
+.gitignore
+README.md
+render.yaml
