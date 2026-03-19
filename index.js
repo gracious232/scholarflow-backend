@@ -2153,6 +2153,14 @@ app.get('/api/formatting-styles', (req, res) => {
 });
 
 // Health check with lightweight dependency verification for monitoring.
+app.get('/', (req, res) => {
+  return res.status(200).json({
+    status: 'ok',
+    service: 'scholarflow-backend',
+    message: 'Backend is running. Use /health for health checks.'
+  });
+});
+
 app.get('/health', (req, res) => {
   db.get('SELECT 1 AS ok', [], (err) => {
     if (err) {
