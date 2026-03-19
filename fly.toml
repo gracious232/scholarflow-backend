@@ -1,33 +1,23 @@
-app = "scholarflow-backend"
-primary_region = "iad"
+# fly.toml app configuration file generated for scholarflow-backend on 2026-03-19T02:35:27Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'scholarflow-backend'
+primary_region = 'iad'
 
 [build]
-  dockerfile = "Dockerfile"
-
-[env]
-  NODE_ENV = "production"
-  DB_PATH = "/data/papers.db"
-
-[[mounts]]
-  source = "scholarflow_data"
-  destination = "/data"
 
 [http_service]
   internal_port = 5000
   force_https = true
-  auto_stop_machines = "stop"
+  auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 0
-  processes = ["app"]
+  processes = ['app']
 
-  [http_service.concurrency]
-    type = "connections"
-    soft_limit = 20
-    hard_limit = 25
-
-[[http_service.checks]]
-  grace_period = "20s"
-  interval = "30s"
-  method = "GET"
-  timeout = "5s"
-  path = "/health"
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 1024
